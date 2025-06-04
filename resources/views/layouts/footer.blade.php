@@ -17,8 +17,8 @@
         <div>
           <h3 class="text-lg font-bold mb-4 text-green-400">Layanan</h3>
           <ul class="space-y-2 text-gray-300 text-sm">
-            <li><a href="#" class="hover:text-green-400 transition-colors">Donasi Online</a></li>
-            <li><a href="#" class="hover:text-green-400 transition-colors">Bantuan Kesehatan</a></li>
+            <li><a href="{{ route('layanans.donasionline') }}" class="hover:text-green-400 transition-colors">Donasi Online</a></li>
+            <li><a href="{{ route('layanans.bantuan') }}"class="hover:text-green-400 transition-colors">Bantuan Kesehatan</a></li>
           </ul>
         </div>
       </div>
@@ -27,19 +27,18 @@
       <div class="flex flex-col items-end">
         <h3 class="text-lg font-bold mb-4 text-green-400">Hubungi Kami</h3>
         <div class="flex space-x-4 text-xl">
-          <a href="https://wa.me/6282122728399" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
+          <a href="https://api.whatsapp.com/send?phone=wa.me/6282122728399" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
             <i class="fab fa-whatsapp"></i>
           </a>
-          <a href="https://instagram.com/yasmi" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
+          <a href="https://www.instagram.com/official.yasmi/" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://facebook.com/yasmi" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
+          <a href="https://www.facebook.com/Official.yasmi/" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
             <i class="fab fa-facebook"></i>
           </a>
         </div>
         <div class="mt-4 text-right text-gray-300 text-sm">
           <p>082122728399</p>
-          <p>info@yasmi.org</p>
         </div>
       </div>
     </div>
