@@ -9,13 +9,25 @@ class DonasiModel extends Model
 {
     use HasFactory;
 
+    // Sesuaikan dengan nama tabel Anda
+    //protected $table = 'donasi_models';
+
+    // Kolom yang dapat diisi secara massal (mass assignable)
     protected $fillable = [
-        'name', 'whatsapp', 'nominal', 'payment_method', 'message', 'status', 'confirmed_by',
+        'user_id', //mengizinkan user_id diisi melalui form/controller
+        'nama',
+        'email',
+        'nomor_telepon',
+        'nominal',
+        'metode_pembayaran',
+        'status_pembayaran',
+        'pesan',
+        // 'program_donasi', // Tambahkan jika ada
     ];
 
-    // Definisikan relasi jika diperlukan
+    // Opsional: Relasi dengan User
     public function user()
     {
-        return $this->belongsTo(User::class, 'confirmed_by');
+        return $this->belongsTo(User::class);
     }
 }

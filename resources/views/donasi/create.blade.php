@@ -2,7 +2,7 @@
 @section('content')
 <section class="donation-form-section" id="formulir-donasi">
   <div class="donation-form-container">
-    <h2 class="donation-form-title">Formulir Sedekah</h2>
+    <h2 class="donation-form-title">Formulir Donasi</h2>
     
     <form action="{{ route('donasi.store') }}" method="POST" class="donation-form">
 @csrf

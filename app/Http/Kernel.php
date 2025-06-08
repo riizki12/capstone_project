@@ -6,25 +6,34 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+    /**
+     * The application's route middleware groups.
+     */
     protected $middlewareGroups = [
-    'web' => [
-        \App\Http\Middleware\EncryptCookies::class,
-        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \App\Http\Middleware\VerifyCsrfToken::class,
-        \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        \App\Http\Middleware\CheckRole::class, // Pindahkan ke sini
-    ],
+        'web' => [
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // **JANGAN taruh CheckRole di sini**
+        ],
 
-    'api' => [
-        // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
-        \Illuminate\Routing\Middleware\SubstituteBindings::class,
-    ],
+        'api' => [
+            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
     ];
+
+    /**
+     * The application's route middleware.
+     */
     protected $routeMiddleware = [
-    // middleware default Laravel
-    'checkRole' => \App\Http\Middleware\CheckRole::class,
+        'auth.admin' => \App\Http\Middleware\AuthenticateAdmin::class,
+        'checkRole'  => \App\Http\Middleware\CheckRole::class, // Taruh di route middleware sini
+        'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'verified'   => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'role'       => \App\Http\Middleware\CheckRole::class,
     ];
 }

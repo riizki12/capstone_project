@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
     'name',
     'email',
     'password',
-    'role',  // Pastikan tanda koma ada di akhir
+    'role',  
     ];
 
 

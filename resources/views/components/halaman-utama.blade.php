@@ -2,7 +2,7 @@
     <div class="foto-kolom">
         <div class="profil-card">
             <img src="{{ asset('img/halaman-utama/utama.png') }}" alt="utama" class="utama">
-            <a href="{{route('donasi')}}" class="tombol-donasi">Bersedekah</a>
+            <a href="{{route('bersedekah')}}" class="tombol-donasi">Bersedekah</a>
         </div>
     </div>
     <div class="aktivitas-kolom">
@@ -12,7 +12,7 @@
             <img src="{{ asset('img/aktivitas/aktivitas2.png') }}" alt="aktivitas 2" class="aktivitas">
             <img src="{{ asset('img/aktivitas/aktivitas3.png') }}" alt="aktivitas 3" class="aktivitas">
         </div>
-        <a href="{{route('donasi')}}" class="donasi-sekarang">Donasi Sekarang</a>
+        <a href="{{route('bersedekah')}}" class="donasi-sekarang">Donasi Sekarang</a>
     </div>
 </div>
 </div>
@@ -29,7 +29,7 @@
 
     {{-- Tombol Donasi --}}
     <div class="text-center mt-6">
-        <a href="{{ route('donasi') }}" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded shadow-md transition">
+        <a href="{{ route('bersedekah') }}" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded shadow-md transition">
             Donasi Sekarang
         </a>
     </div>

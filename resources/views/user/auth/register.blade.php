@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Registrasi DonasiKu</title>
+  <title>Registrasi</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 flex items-center justify-center min-h-screen">
@@ -41,6 +41,13 @@
         Sudah punya akun?
         <a href="{{ route('login') }}" class="text-green-600 hover:underline">Login di sini</a>
       </p>
+
+      <div class="mt-4 text-center">
+            <a href="{{ route('home') }}" 
+               class="inline-block px-4 py-2 text-sm text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
+               ← Kembali ke Halaman Utama
+            </a>
+        </div>
     </form>
   </div>
 
