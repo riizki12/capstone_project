@@ -65,7 +65,7 @@ class AdminLoginController extends Controller
 
         // Mengarahkan user ke halaman login admin setelah logout.
         // Anda bisa mengubahnya ke halaman utama ('/') jika itu yang diinginkan.
-        return redirect()->route('admin.login'); // Mengarahkan ke halaman login admin
+        return redirect()->route('home'); // Mengarahkan ke halaman home
     }
 
     // Metode dashboard (jika ada dan Anda ingin menampilkannya)

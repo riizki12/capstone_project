@@ -31,15 +31,15 @@
         <form method="POST" action="{{ route('user.login.submit') }}">
             @csrf
             <div class="mb-4">
-                <label class="block mb-2 text-gray-700">Email</label>
-                <input type="email" name="email" required 
-                       class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500 focus:outline-none">
+                <label for="email" class="block mb-2 text-gray-700">Email</label>
+                <input type="email" id="email" name="email" required 
+                        class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500 focus:outline-none">
             </div>
 
             <div class="mb-4">
-                <label class="block mb-2 text-gray-700">Password</label>
-                <input type="password" name="password" required 
-                       class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500 focus:outline-none">
+                <label for="password" class="block mb-2 text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required 
+                        class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500 focus:outline-none">
             </div>
 
             <button type="submit" class="w-full py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition">
@@ -47,11 +47,21 @@
             </button>
         </form>
 
+        {{-- Tautan Registrasi --}}
+        <div class="mt-4 text-center">
+            <p class="text-gray-600 text-sm">
+                Belum punya akun? 
+                <a href="{{ route('user.register') }}" class="text-green-600 hover:underline font-semibold">
+                    Registrasi
+                </a>
+            </p>
+        </div>
+
         {{-- Tombol Kembali --}}
         <div class="mt-4 text-center">
             <a href="{{ route('home') }}" 
                class="inline-block px-4 py-2 text-sm text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
-               ← Kembali ke Halaman Utama
+                ← Kembali ke Halaman Utama
             </a>
         </div>
     </div>

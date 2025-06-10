@@ -22,9 +22,9 @@
           @csrf
           <button type="submit" class="px-4 py-2 text-sm text-white bg-red-500 rounded-lg hover:bg-red-600 transition">Logout Admin</button>
         </form>
-      @elseauth('web') {{-- Jika user biasa (donatur) login --}}
-        <a href="{{ route('dashboard') }}" class="px-4 py-2 text-sm text-green-700 rounded-lg hover:bg-green-800 transition">Dashboard Saya</a> {{-- Ganti dengan rute dashboard user biasa --}}
-        <form action="{{ route('logout') }}" method="POST" class="inline">
+      @elseauth ('web') {{-- Jika user biasa (donatur) login --}}
+        <a href="{{ route('home') }}" class="px-4 py-2 text-sm text-green-700 rounded-lg hover:bg-green-800 transition"></a> {{-- Ganti dengan rute dashboard user biasa --}}
+        <form action="{{ route('user.logout') }}" method="POST" class="inline">
           @csrf
           <button type="submit" class="px-4 py-2 text-sm text-white bg-red-500 rounded-lg hover:bg-red-600 transition">Logout</button>
         </form>

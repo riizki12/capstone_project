@@ -35,7 +35,7 @@
       </div>
     @endif
     
-    <form method="POST" action="{{ route('register') }}" class="space-y-5">
+    <form method="POST" action="{{ route('user.register') }}" class="space-y-5">
       @csrf
 
       <div>
@@ -76,7 +76,7 @@
 
       <p class="text-sm text-center text-gray-600 mt-4">
         Sudah punya akun?
-        <a href="{{ route('login') }}" class="text-green-600 hover:underline">Login di sini</a>
+        <a href="{{ route('user.login') }}" class="text-green-600 hover:underline">Login di sini</a>
       </p>
 
       <div class="mt-4 text-center">
