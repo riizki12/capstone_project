@@ -1,42 +1,42 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User; // Import model User
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash; // Untuk hashing password
+use Illuminate\Support\Facades\Auth; // Untuk login otomatis setelah registrasi
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('user.auth.register');
+        return view('user.auth.register'); // Pastikan 'auth.register' sesuai dengan lokasi file blade Anda
     }
 
     public function register(Request $request)
     {
-        // Validasi data
+        // 1. Validasi Input
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'], // 'confirmed' akan mencocokkan dengan password_confirmation
         ]);
 
-        // Simpan user baru
+        // 2. Buat Pengguna Baru
         $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-            'role'     => 'user', // default role donatur
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password), // Password di-hash sebelum disimpan
         ]);
 
-        // Login langsung setelah register
+        // 3. Login Pengguna Secara Otomatis (Opsional)
         Auth::login($user);
 
-        dd('Berhasil Registrasi dan Login');
-
-        // Redirect ke halaman utama
-        return redirect()->route('home')->with('success', 'Registrasi berhasil!');
+        // 4. Redirect Setelah Registrasi Berhasil
+        return redirect()->route('home')->with('success', 'Registrasi berhasil! Selamat datang.');
+        // Ganti 'dashboard' dengan nama rute halaman yang ingin dituju setelah registrasi
     }
 }

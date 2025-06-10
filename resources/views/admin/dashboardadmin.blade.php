@@ -95,7 +95,7 @@
                                                 {{ ucfirst($donation->status_pembayaran) }}
                                             </span>
                                         </td>
-                                        <td class="py-2 px-4 border-b">{{ $donation->created_at->format('d/m/Y H:i') }}</td>
+                                        <td class="py-2 px-4 border-b">{{ $donation->created_at?->format('d/m/Y H:i') ?? '-' }}</td> {{-- PERBAIKAN DI SINI --}}
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -6,9 +6,6 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
-    /**
-     * The application's route middleware groups.
-     */
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -26,9 +23,7 @@ class Kernel extends HttpKernel
         ],
     ];
 
-    /**
-     * The application's route middleware.
-     */
+
     protected $routeMiddleware = [
         'auth.admin' => \App\Http\Middleware\AuthenticateAdmin::class,
         'checkRole'  => \App\Http\Middleware\CheckRole::class, // Taruh di route middleware sini
